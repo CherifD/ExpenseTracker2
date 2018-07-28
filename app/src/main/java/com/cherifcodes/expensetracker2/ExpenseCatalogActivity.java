@@ -77,15 +77,8 @@ public class ExpenseCatalogActivity extends AppCompatActivity {
                         mExpenseList.clear();
                         mExpenseList.addAll(ListFilter.getExpensesByCategoryId(expenseList,
                                 currCatalogId));
-                        /*for(Expense ex: expenseList) {
-                            if (ex.getCatId() == currCatalogId) {
-                                mExpenseList.add(ex);
-                            }
-                        }*/
 
                         if (mAdapter == null) {
-                           /* mAdapter = new ExpenseAdapter(expenseList,
-                                    ExpenseCatalogActivity.this);*/
                             mAdapter = new ExpenseAdapter(mExpenseList,
                                     ExpenseCatalogActivity.this);
                             mRecyclerView.setAdapter(mAdapter);
@@ -94,16 +87,10 @@ public class ExpenseCatalogActivity extends AppCompatActivity {
                         }
                     }
                 };
-        /*mViewModel = ViewModelProviders.of(this,
-                new ViewModelFactoryWithParameter(this.getApplication(),
-                        currCatalogId)).get(ExpenseCatalogViewModel.class);
-        mViewModel.init(currCatalogId);*/
+
         mViewModel = new ExpenseCatalogViewModel(getApplication());
         mViewModel = ViewModelProviders.of(this)
                 .get(ExpenseCatalogViewModel.class); //Instantiate viewModel
-        //mViewModel.init(currCatalogId);
-        //mViewModel.setCurrentCatalogId(currCatalogId); //Set it's parameter
-        mViewModel.getAllExpenses().observe(this, expenseObserver); //Start observation (works!)
-        //mViewModel.getFilteredExpenseList();
+        mViewModel.getAllExpenses().observe(this, expenseObserver); //Start observation
     }
 }

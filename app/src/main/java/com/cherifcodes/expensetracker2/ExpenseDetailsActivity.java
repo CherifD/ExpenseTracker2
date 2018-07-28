@@ -51,9 +51,6 @@ public class ExpenseDetailsActivity extends AppCompatActivity {
                     mEtAmount.setText(String.valueOf(expense.getAmount()));
                     mEtStoreName.setText(expense.getStoreName());
 
-                } else {
-                    /*Toast.makeText(ExpenseDetailsActivity.this, "Null expense",
-                            Toast.LENGTH_SHORT).show();*/
                 }
             }
         });
@@ -75,8 +72,6 @@ public class ExpenseDetailsActivity extends AppCompatActivity {
 
     public void saveExpense(View vi) {
         int categoryId = mExtras.getInt("categoryId");
-
-        //Toast.makeText(this, "categoryId is: " + categoryId, Toast.LENGTH_SHORT).show();
 
         String amountString = mEtAmount.getText().toString().trim();
         String storeName = mEtStoreName.getText().toString().trim();

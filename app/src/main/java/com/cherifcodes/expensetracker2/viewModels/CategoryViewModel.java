@@ -9,7 +9,6 @@ import com.cherifcodes.expensetracker2.database.AppRepository;
 import com.cherifcodes.expensetracker2.database.Category;
 import com.cherifcodes.expensetracker2.database.Expense;
 
-import java.util.Date;
 import java.util.List;
 
 public class CategoryViewModel extends AndroidViewModel {
@@ -17,7 +16,6 @@ public class CategoryViewModel extends AndroidViewModel {
 
     private LiveData<List<Category>> mCategories;
     private LiveData<List<Expense>> mExpenses;
-    private LiveData<Double> totalExpenseAfter;
 
     public CategoryViewModel(@NonNull Application application) {
         super(application);
@@ -38,8 +36,4 @@ public class CategoryViewModel extends AndroidViewModel {
         mAppRepository.deleteAll();
     }
 
-    public LiveData<Double> getTotalExpenseAfter(Date date) {
-        totalExpenseAfter = mAppRepository.getTotalExpenseAfter(date);
-        return totalExpenseAfter;
-    }
 }

@@ -23,23 +23,8 @@ public interface ExpenseDAO {
     @Delete
     void deleteExpense(Expense expense);
 
-    /*@Query("SELECT * FROM Expense WHERE catId = 1 ORDER BY amount ASC")
-    LiveData<List<Expense>> getAllExpenses();*/
-
     @Query("SELECT * FROM Expense ORDER BY amount ASC")
     LiveData<List<Expense>> getAllExpenses();
-
-    @Query("SELECT * FROM Expense WHERE date > :date ORDER BY date ASC ")
-    LiveData<List<Expense>> getExpensesAfter(Date date);
-
-    /*@Query("SELECT * FROM Expense WHERE catId = :catId ORDER BY amount ASC")
-    LiveData<List<Expense>> getAllExpenses(int catId);
-*/
-    /*@Query("SELECT * FROM Expense WHERE catId =:categoryId ORDER BY amount ASC")
-    LiveData<List<Expense>> getExpensesByCategoryId(int categoryId);*/
-
-    /*@Query("SELECT * FROM Expense WHERE catId = :categoryId")
-    LiveData<List<Expense>> getExpensesForCategory(int categoryId);*/
 
     @Query("SELECT SUM(amount) FROM Expense WHERE date > :date")
     LiveData<Double> getTotalExpenseAfter(Date date);

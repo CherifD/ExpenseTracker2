@@ -20,8 +20,6 @@ public class Expense {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    //@ForeignKey(entity = Category.class, parentColumns = {"id"}, childColumns = "id",
-    //onDelete = CASCADE)
     private int catId;
 
     private double amount;

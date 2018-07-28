@@ -3,7 +3,6 @@ package com.cherifcodes.expensetracker2.database;
 import android.arch.lifecycle.LiveData;
 import android.content.Context;
 
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -115,12 +114,4 @@ public class AppRepository {
         });
     }
 
-    public LiveData<Double> getTotalExpenseAfter(Date date) {
-        try {
-            return mExpenseDAO.getTotalExpenseAfter(date);
-        } catch (Exception e) {
-            return null;
-        }
-
-    }
 }

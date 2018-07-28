@@ -59,7 +59,6 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ViewHold
                 extras.putString("expenseStore", expense.getStoreName());
                 extras.putDouble("expenseAmount", expense.getAmount());
                 intent.putExtras(extras);
-                //mContext.startActivity(new Intent(mContext, ExpenseDetailsActivity.class));
                 mContext.startActivity(intent);
             }
         });

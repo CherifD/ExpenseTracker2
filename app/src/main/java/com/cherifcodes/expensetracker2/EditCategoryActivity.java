@@ -67,43 +67,12 @@ public class EditCategoryActivity extends AppCompatActivity {
                 }
             }
         });
-
-       /* //Instantiate ViewModel
-        mViewModel = ViewModelProviders.of(this)
-                .get(CategoryEditorViewModel.class);
-
-        mViewModel.getLiveCategory().observe(this, new Observer<Category>() {
-            @Override
-            public void onChanged(@Nullable Category category) {
-                if (category != null) {
-                    //Display the current Category's data
-                    mTvCategory.setText(category.getName());
-                    mTvId.setText(Integer.toString(category.getId()));
-
-                } else {
-                    Toast.makeText(EditCategoryActivity.this, "Null category",
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        mExtras = getIntent().getExtras();
-        if (mExtras == null) {
-            setTitle("New Note");
-        } else {
-            setTitle("Edit Note");
-            int currId = mExtras.getInt("note_id_key");
-            //Trigger data reload and display using the current Id
-            mViewModel.getCategoryById(currId); //This causes an update to the ViewModel's LiveData
-            // object and a call to the above observer's onChanged method
-        }*/
     }
 
     public void saveCategory(View v) {
         String name = mTvCategory.getText().toString().trim();
         if (!TextUtils.isEmpty(name)) {
             if (mExtras != null) {
-                //int currId = mExtras.getInt("note_id_key");
                 mViewModel.updateCategory(currCategoryId, name);
             } else {
                 mViewModel.insertCategory(name);

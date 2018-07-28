@@ -37,10 +37,6 @@ public class CategoryEditorViewModel extends AndroidViewModel {
         mAppRepository.insertCategory(category);
     }
 
-    public LiveData<Category> getLiveCategory() {
-        return mLiveCategory;
-    }
-
     public void updateCategory(int id, String name) {
         Category category = new Category(id, name);
         mAppRepository.updateCategory(category);

@@ -11,16 +11,12 @@ import com.cherifcodes.expensetracker2.database.AppRepository;
 import com.cherifcodes.expensetracker2.database.Expense;
 
 import java.util.Date;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 
 public class ExpenseDetailsViewModel extends AndroidViewModel {
 
     AppRepository mAppRepository;
 
     MutableLiveData<Expense> mLiveExpenses = new MutableLiveData<>();
-
-    Executor executor = Executors.newSingleThreadExecutor();
 
     public ExpenseDetailsViewModel(@NonNull Application application) {
         super(application);
