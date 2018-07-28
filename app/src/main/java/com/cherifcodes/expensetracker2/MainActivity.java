@@ -107,14 +107,6 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner {
 
                     }
                 };
-        // Observer of full Expense list (Since current category id is needed for retrieval of
-        // partial Expense list, this approach may be the simplest to implement)
-        /*Observer<LiveData<List<Expense>>> liveExpensesObserver = new Observer<LiveData<List<Expense>>>() {
-            @Override
-            public void onChanged(@Nullable LiveData<List<Expense>> listLiveData) {
-
-            }
-        };*/
 
         final Observer<List<Expense>> expenseObserver = new Observer<List<Expense>>() {
             @Override
