@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Expense Tracker</string>
+    <string name="delete_all">Delete all data!</string>
+</resources>
