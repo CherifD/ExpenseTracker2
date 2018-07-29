@@ -22,12 +22,13 @@ public class ListFilter {
     }
 
     public static double getCategoryTotal(List<Expense> expenseList, int categoryId) {
+        Date firstDateOfMonth = getFirstDateOfCurrentMonth();
         double categoryTotal = 0.0;
         mTotalExpense = 0.0;
         for (Expense ex : expenseList) {
             double currAmount = ex.getAmount();
             mTotalExpense += currAmount;
-            if (ex.getCatId() == categoryId) {
+            if (ex.getCatId() == categoryId && ex.getDate().compareTo(firstDateOfMonth) >= 0) {
                 categoryTotal += currAmount;
             }
         }
@@ -42,7 +43,7 @@ public class ListFilter {
         Date firstDateOfMonth = getFirstDateOfCurrentMonth();
         double totalExpenseForThisMonth = 0.0;
         for (Expense expense : expenseList) {
-            if (expense.getDate().compareTo(firstDateOfMonth) > 0) {
+            if (expense.getDate().compareTo(firstDateOfMonth) >= 0) {
                 totalExpenseForThisMonth += expense.getAmount();
             }
         }

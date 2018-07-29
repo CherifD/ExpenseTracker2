@@ -98,8 +98,7 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner {
                         categoryList.addAll(categories);
 
                         if (mAdapter == null) {
-                            mAdapter = new CategoryAdapter(categoryList,
-                                    MainActivity.this);
+                            mAdapter = new CategoryAdapter(categoryList,MainActivity.this);
                             mRecyclerView.setAdapter(mAdapter);
                         } else {
                             mAdapter.notifyDataSetChanged();
